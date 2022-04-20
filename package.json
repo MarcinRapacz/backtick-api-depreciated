@@ -20,7 +20,10 @@
     "yarn": "please-use-npm"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
