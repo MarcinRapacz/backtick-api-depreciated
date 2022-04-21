@@ -2,6 +2,38 @@ import { DataTypes } from 'sequelize';
 import { sequelize } from '../configs/sequelize';
 import { ICustomerModel } from './types';
 
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      _BaseCustomer:
+ *        type: object
+ *        required:
+ *          - firstName
+ *          - lastName
+ *        properties:
+ *          firstName:
+ *            type: string
+ *            example: John
+ *          lastName:
+ *            type: string
+ *            example: Doe
+ *      Customer:
+ *        allOf:
+ *          - $ref: '#/components/schemas/_BaseCustomer'
+ *          - type: object
+ *            properties:
+ *              id:
+ *                type: string
+ *                description: The auto-generated id of the customer
+ *                example: 8fc85466-d795-4b63-aa8b-a147b77150bb
+ *              updatedAt:
+ *                type: string
+ *                example: "2022-04-21T22:46:09.744Z"
+ *              createdAt:
+ *                type: string
+ *                example: "2022-04-21T22:46:09.744Z"
+ */
 export const Customer = sequelize.define<ICustomerModel>(
   'Customer',
   {
