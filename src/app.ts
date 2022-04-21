@@ -2,11 +2,13 @@ import 'dotenv/config';
 import express, { Express } from 'express';
 import { sync as sequelizeSyncModels } from './models/sync';
 import router from './routers';
+import { errorHandler } from './utils/errorHandler';
 
 const app: Express = express();
 const port = process.env.PORT || 8080;
 
 app.use('/api', router);
+app.use(errorHandler);
 
 sequelizeSyncModels()
   .then(() => {
