@@ -14,6 +14,9 @@ interface IResponse {
 */
 
 export interface ICustomerRequest extends Request {
+  params: {
+    id: string;
+  };
   body: {
     id: string;
     firstName: string;
@@ -22,5 +25,5 @@ export interface ICustomerRequest extends Request {
 }
 
 export interface ICustomerResponse extends IResponse {
-  customer: ICustomerModel;
+  customer: ICustomerModel | null;
 }
