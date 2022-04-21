@@ -19,7 +19,7 @@ export const create = async (
 
     return res.status(201).json({
       success: true,
-      messages: 'Created customer',
+      message: 'Created customer',
       customer,
     });
   } catch (error) {
@@ -41,10 +41,12 @@ export const get = async (
         id,
       },
     });
+    const status = customer ? 200 : 404;
+    const message = customer ? 'Customer details' : 'Customer not found';
 
-    return res.status(200).json({
-      success: true,
-      messages: 'Customer details',
+    return res.status(status).json({
+      success: !!customer,
+      message,
       customer,
     });
   } catch (error) {
@@ -66,10 +68,11 @@ export const update = async (
       { firstName, lastName },
       { where: { id } }
     );
+    const status = affectedCount ? 200 : 404;
 
-    return res.status(200).json({
+    return res.status(status).json({
       success: !!affectedCount,
-      messages: `Updated customer: ${affectedCount}`,
+      message: `Updated customers: ${affectedCount}`,
       customer: null,
     });
   } catch (error) {
@@ -86,9 +89,11 @@ export const remove = async (
   try {
     const { id } = req.params;
     const countOfDestroyed = await Customer.destroy({ where: { id } });
-    return res.status(200).json({
+    const status = countOfDestroyed ? 200 : 404;
+
+    return res.status(status).json({
       customer: null,
-      messages: `Removed customer: ${countOfDestroyed}`,
+      message: `Removed customers: ${countOfDestroyed}`,
       success: !!countOfDestroyed,
     });
   } catch (error) {

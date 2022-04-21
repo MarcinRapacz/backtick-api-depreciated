@@ -5,7 +5,7 @@ import { ICustomerModel } from '../models/types';
     COMMONS
 */
 interface IResponse {
-  messages: string;
+  message: string;
   success: boolean;
 }
 
