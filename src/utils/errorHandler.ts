@@ -3,7 +3,7 @@ import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 /**
  * @swagger
  *  components:
- *    schemas:
+ *    hidden:
  *      _ServerError:
  *          content:
  *            application/json:

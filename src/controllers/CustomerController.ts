@@ -21,7 +21,7 @@ import { ICustomerRequest, ICustomerResponse } from './types';
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/_BaseCustomer'
+ *              $ref: '#/components/hidden/_BaseCustomer'
  *      responses:
  *        201:
  *          content:
@@ -39,7 +39,7 @@ import { ICustomerRequest, ICustomerResponse } from './types';
  *                    type: boolean
  *                    example: true
  *        500:
- *          $ref: '#/components/schemas/_ServerError'
+ *          $ref: '#/components/hidden/_ServerError'
  */
 export const create = async (
   req: ICustomerRequest,
@@ -68,7 +68,7 @@ export const create = async (
  * @swagger
  *  /api/customer/{:id}:
  *    get:
- *      summary: Returns customer
+ *      summary: Return customer
  *      tags: [Customer]
  *      parameters:
  *        - in: path
@@ -110,7 +110,7 @@ export const create = async (
  *                    type: boolean
  *                    example: false
  *        500:
- *          $ref: '#/components/schemas/_ServerError'
+ *          $ref: '#/components/hidden/_ServerError'
  */
 export const get = async (
   req: ICustomerRequest,
@@ -157,7 +157,7 @@ export const get = async (
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/_BaseCustomer'
+ *              $ref: '#/components/hidden/_BaseCustomer'
  *      responses:
  *        200:
  *          content:
@@ -190,7 +190,7 @@ export const get = async (
  *                    type: boolean
  *                    example: false
  *        500:
- *          $ref: '#/components/schemas/_ServerError'
+ *          $ref: '#/components/hidden/_ServerError'
  */
 export const update = async (
   req: ICustomerRequest,
@@ -263,7 +263,7 @@ export const update = async (
  *                    type: boolean
  *                    example: false
  *        500:
- *          $ref: '#/components/schemas/_ServerError'
+ *          $ref: '#/components/hidden/_ServerError'
  */
 export const remove = async (
   req: ICustomerRequest,
